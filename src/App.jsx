@@ -6,6 +6,7 @@ import { useRef,useState } from "react"
 function App() {
   const audioRef = useRef(null)
   const [isPlaying, setIsPlaying] = useState(false)
+  const [currentTime, setCurrentTime] = useState(0)
 
 //play and pause song
   function playSong() {
@@ -23,11 +24,12 @@ function App() {
         <h2 className="song-title">Song Title</h2>
         <img className="cover" src={cover} alt="cover"/>
         <div className="progress">
-          <span>0:00</span>
+          <span>{Math.floor(currentTime)}s</span>
           <input type="range" />
-          <span>0:00</span>
+          <span>00:00</span>
         </div>
-        <audio className="audio" src={song1} ref={audioRef}></audio>
+        <audio className="audio" src={song1} ref={audioRef}
+        onTimeUpdate={() => setCurrentTime(audioRef.current.currentTime)}></audio>
         <div className="controls">
           <button className="previous">previous</button>
           <button className="play" onClick={playSong}>

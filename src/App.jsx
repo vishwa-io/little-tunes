@@ -1,16 +1,20 @@
 import "./App.css"
 import cover from "./assets/cover.png"
 import song1 from "./assets/music/song-1.mp3"
-import { useRef } from "react"
+import { useRef,useState } from "react"
 
 function App() {
   const audioRef = useRef(null)
+  const [isPlaying, setIsPlaying] = useState(false)
 
+//play and pause song
   function playSong() {
     if (audioRef.current.paused) {
       audioRef.current.play()
+      setIsPlaying(true)
     } else {
       audioRef.current.pause()
+      setIsPlaying(false)
     }
   }
   return (
@@ -26,7 +30,9 @@ function App() {
         <audio className="audio" src={song1} ref={audioRef}></audio>
         <div className="controls">
           <button className="previous">previous</button>
-          <button className="play" onClick={playSong}>play</button>
+          <button className="play" onClick={playSong}>
+            {isPlaying ? "pause" : "play"}
+          </button>
           <button className="next">next</button>
         </div>
       </div>

@@ -39,7 +39,7 @@ function App() {
         <img className="cover" src={cover} alt="cover"/>
         <div className="progress">
           <span>{getMinutes(currentTime)}</span>
-          <input type="range" />
+          <input type="range" min="0" max={duration} value={currentTime} />
           <span>{getMinutes(duration)}</span>        
         </div>
         <audio className="audio" src={song1} ref={audioRef}

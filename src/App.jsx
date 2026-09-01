@@ -3,6 +3,11 @@ import cover from "./assets/cover.png"
 import song1 from "./assets/music/song-1.mp3"
 import song2 from "./assets/music/song-2.mp3"
 import { useRef,useState,useEffect } from "react"
+import frame from "./assets/frame.png"
+import play from "./assets/play.png"
+import pause from "./assets/pause.png"
+import forwards from "./assets/forwards.png"
+import backwards from "./assets/backwards.png"
 
 const listAudio = [
   {
@@ -67,6 +72,7 @@ function App() {
   return (
     <main className="page">
       <div className="player">
+        <img className="frame" src={frame} alt="frame" />
         <h2 className="song-title">Song Title</h2>
         <img className="cover" src={cover} alt="cover"/>
         <div className="progress">
@@ -86,11 +92,15 @@ function App() {
           }
         }}></audio>
         <div className="controls">
-          <button className="previous" onClick={previous}>previous</button>
-          <button className="play" onClick={playSong}>
-            {isPlaying ? "pause" : "play"}
+          <button className="previous" onClick={previous}>
+            <img src={backwards} alt="previous" />
           </button>
-          <button className="next" onClick={next} >next</button>
+          <button className="play" onClick={playSong}>
+            <img src={isPlaying ? pause : play} alt={isPlaying ? "pause" : "play"} />
+          </button>
+          <button className="next" onClick={next} >
+            <img src={forwards} alt="next" />
+          </button>
         </div>
       </div>
     </main>

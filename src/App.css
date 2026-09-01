@@ -7,53 +7,97 @@
 }
 
 .player {
-  width: 300px;
+  width: 330px;
+  height: 480px;
   padding: 15px;
-  background-color: #d99bc5;
-  border: 2px solid #b778a5;
-  border-radius: 15px;
+  text-align: center;
+  position: relative;
   text-align: center;
 }
 
 .song-title {
-  margin: 0 0 10px;
+  position: absolute;
+  top: 30px;
+  left: 0;
+  width: 100%;
+  margin: 0;
   color: #7d466d;
+  font-size: 20px;
+  z-index: 3;
 }
 
 .cover {
-  width: 250px;
-  height: 250px;
+  position: absolute;
+  width: 320px;
+  height: 280px;
   object-fit: cover;
-  border-radius: 8px;
+  left: 22px;
+  top: 62px;
+  z-index: 1;
 }
-
-.controls {
-  margin-top: 10px;
-  padding: 8px;
-  background-color: #eed8ea;
-  border-radius: 10px;
-}
-
 .controls button {
   margin: 5px;
-  padding: 8px;
+  padding: 0;
   border: none;
   background-color: transparent;
-  color: #7d466d;
   cursor: pointer;
 }
 
 .progress {
+  position: absolute;
+  top: 350px;
+  left: 40px;
+  width: 280px;
   display: flex;
   align-items: center;
   gap: 5px;
-  margin-top: 10px;
+  z-index: 3;
 }
 
 .progress span {
   font-size: 12px;
+  color: #7d466d;
 }
 
 .progress input {
-  flex: 1; 
+  flex: 1;
+}
+
+.frame {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.controls {
+  position: absolute;
+  top: 380px;
+  left: 23px;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  z-index: 3;
+  margin: 0;
+  padding: 8px;
+  background-color: transparent;
+  border-radius: 10px;
+}
+
+.controls img {
+  display: block;
+}
+
+.previous img,
+.next img {
+  width: 65px;
+}
+
+.play img {
+  width: 75px;
 }

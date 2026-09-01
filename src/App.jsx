@@ -8,7 +8,19 @@ function App() {
   const [isPlaying, setIsPlaying] = useState(false)
   const [currentTime, setCurrentTime] = useState(0)
 
-//play and pause song
+  function getMinutes(t) {
+    var min = parseInt(t/60)
+    var sec = parseInt(t%60)
+    
+    if (sec < 10) {
+      sec = "0" + sec
+    }
+    if (min < 10) {
+      min = "0" + min
+    }
+    return min + ":" + sec
+  }
+  //play and pause song
   function playSong() {
     if (audioRef.current.paused) {
       audioRef.current.play()
@@ -24,9 +36,9 @@ function App() {
         <h2 className="song-title">Song Title</h2>
         <img className="cover" src={cover} alt="cover"/>
         <div className="progress">
-          <span>{Math.floor(currentTime)}s</span>
+          <span>{getMinutes(currentTime)}</span>
           <input type="range" />
-          <span>00:00</span>
+          <span>{getMinutes(audioRef.current?.duration || 0)}</span>
         </div>
         <audio className="audio" src={song1} ref={audioRef}
         onTimeUpdate={() => setCurrentTime(audioRef.current.currentTime)}></audio>

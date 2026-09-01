@@ -42,3 +42,19 @@
   color: #7d466d;
   cursor: pointer;
 }
+
+.progress {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.progress span {
+  font-size: 12px;
+}
+
+.progress input {
+  flex: 1;  background-color: #eed8ea;
+
+}

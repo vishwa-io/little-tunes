@@ -7,6 +7,11 @@ function App() {
       <div className="player">
         <h2 className="song-title">Song Title</h2>
         <img className="cover" src={cover} alt="cover"/>
+        <div className="progress">
+          <span>0:00</span>
+          <input type="range" />
+          <span>0:00</span>
+        </div>
         <div className="controls">
           <button className="previous">previous</button>
           <button className="play">play</button>

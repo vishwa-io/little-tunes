@@ -2,7 +2,7 @@ import "./App.css"
 import cover from "./assets/cover.png"
 import song1 from "./assets/music/song-1.mp3"
 import song2 from "./assets/music/song-2.mp3"
-import { useRef,useState } from "react"
+import { useRef,useState,useEffect } from "react"
 
 const listAudio = [
   {
@@ -45,6 +45,12 @@ function App() {
       setIsPlaying(false)
     }
   }
+  useEffect(() => {
+    if (indexAudio > 0) {
+      audioRef.current.play()
+      setIsPlaying(true)
+    }
+  }, [indexAudio])
   //next song
   function next() {
     if (indexAudio < listAudio.length - 1) {
@@ -57,6 +63,7 @@ function App() {
       setIndexAudio(indexAudio - 1)
     }
   }
+  
   return (
     <main className="page">
       <div className="player">

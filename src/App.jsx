@@ -7,11 +7,13 @@ function App() {
   const audioRef = useRef(null)
   const [isPlaying, setIsPlaying] = useState(false)
   const [currentTime, setCurrentTime] = useState(0)
+  const [duration, setDuration] = useState(0)
 
+  //convert seconds to minutes and seconds
   function getMinutes(t) {
     var min = parseInt(t/60)
     var sec = parseInt(t%60)
-    
+
     if (sec < 10) {
       sec = "0" + sec
     }
@@ -38,10 +40,11 @@ function App() {
         <div className="progress">
           <span>{getMinutes(currentTime)}</span>
           <input type="range" />
-          <span>{getMinutes(audioRef.current?.duration || 0)}</span>
+          <span>{getMinutes(duration)}</span>        
         </div>
         <audio className="audio" src={song1} ref={audioRef}
-        onTimeUpdate={() => setCurrentTime(audioRef.current.currentTime)}></audio>
+        onTimeUpdate={() => setCurrentTime(audioRef.current.currentTime)}
+        onLoadedMetadata={() => setDuration(audioRef.current.duration)}></audio>
         <div className="controls">
           <button className="previous">previous</button>
           <button className="play" onClick={playSong}>

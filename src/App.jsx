@@ -45,10 +45,17 @@ function App() {
       setIsPlaying(false)
     }
   }
+  //next song
   function next() {
     if (indexAudio < listAudio.length - 1) {
       setIndexAudio(indexAudio + 1)
       }
+  }
+  //previous song
+  function previous() {
+    if (indexAudio > 0) {
+      setIndexAudio(indexAudio - 1)
+    }
   }
   return (
     <main className="page">
@@ -65,9 +72,14 @@ function App() {
         </div>
         <audio className="audio" src={listAudio[indexAudio].file} ref={audioRef}
         onTimeUpdate={() => setCurrentTime(audioRef.current.currentTime)}
-        onLoadedMetadata={() => setDuration(audioRef.current.duration)}></audio>
+        onLoadedMetadata={() => setDuration(audioRef.current.duration)}
+        onEnded={() => {
+          if (indexAudio < listAudio.length - 1) {
+            setIndexAudio(indexAudio + 1)
+          }
+        }}></audio>
         <div className="controls">
-          <button className="previous">previous</button>
+          <button className="previous" onClick={previous}>previous</button>
           <button className="play" onClick={playSong}>
             {isPlaying ? "pause" : "play"}
           </button>

@@ -1,13 +1,26 @@
 import "./App.css"
 import cover from "./assets/cover.png"
 import song1 from "./assets/music/song-1.mp3"
+import song2 from "./assets/music/song-2.mp3"
 import { useRef,useState } from "react"
+
+const listAudio = [
+  {
+    name: "Song One",
+    file: song1
+  },
+  {
+    name: "Song Two",
+    file: song2
+  }
+]
 
 function App() {
   const audioRef = useRef(null)
   const [isPlaying, setIsPlaying] = useState(false)
   const [currentTime, setCurrentTime] = useState(0)
   const [duration, setDuration] = useState(0)
+  const [indexAudio, setIndexAudio] = useState(0)
 
   //convert seconds to minutes and seconds
   function getMinutes(t) {
@@ -32,6 +45,11 @@ function App() {
       setIsPlaying(false)
     }
   }
+  function next() {
+    if (indexAudio < listAudio.length - 1) {
+      setIndexAudio(indexAudio + 1)
+      }
+  }
   return (
     <main className="page">
       <div className="player">
@@ -45,7 +63,7 @@ function App() {
           setCurrentTime(event.target.value)}}/>
           <span>{getMinutes(duration)}</span>        
         </div>
-        <audio className="audio" src={song1} ref={audioRef}
+        <audio className="audio" src={listAudio[indexAudio].file} ref={audioRef}
         onTimeUpdate={() => setCurrentTime(audioRef.current.currentTime)}
         onLoadedMetadata={() => setDuration(audioRef.current.duration)}></audio>
         <div className="controls">
@@ -53,7 +71,7 @@ function App() {
           <button className="play" onClick={playSong}>
             {isPlaying ? "pause" : "play"}
           </button>
-          <button className="next">next</button>
+          <button className="next" onClick={next} >next</button>
         </div>
       </div>
     </main>

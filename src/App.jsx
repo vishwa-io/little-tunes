@@ -71,6 +71,7 @@ function App() {
   
   return (
     <main className="page">
+    <div className="total">
       <div className="player">
         <img className="frame" src={frame} alt="frame" />
         <h2 className="song-title">{listAudio[indexAudio].name}</h2>
@@ -103,6 +104,7 @@ function App() {
           </button>
         </div>
       </div>
+    </div>
     </main>
   )
 }

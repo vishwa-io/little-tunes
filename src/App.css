@@ -28,7 +28,7 @@
 
 .cover {
   position: absolute;
-  width: 320px;
+  width: 310px;
   height: 280px;
   object-fit: cover;
   left: 22px;
@@ -121,4 +121,9 @@
 
 .play img {
   width: 75px;
+}
+@media (max-width: 500px) {
+  .player {
+    transform: scale(0.85);
+  }
 }

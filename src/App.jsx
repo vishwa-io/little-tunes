@@ -11,11 +11,11 @@ import backwards from "./assets/backwards.png"
 
 const listAudio = [
   {
-    name: "Song One",
+    name: "Fallen Angel - Jennie Kim",
     file: song1
   },
   {
-    name: "Song Two",
+    name: "Super Shy - NewJeans",
     file: song2
   }
 ]
@@ -73,7 +73,7 @@ function App() {
     <main className="page">
       <div className="player">
         <img className="frame" src={frame} alt="frame" />
-        <h2 className="song-title">Song Title</h2>
+        <h2 className="song-title">{listAudio[indexAudio].name}</h2>
         <img className="cover" src={cover} alt="cover"/>
         <div className="progress">
           <span>{getMinutes(currentTime)}</span>

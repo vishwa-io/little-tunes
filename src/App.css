@@ -58,9 +58,30 @@
   font-size: 12px;
   color: #7d466d;
 }
-
 .progress input {
   flex: 1;
+  appearance: none;
+  height: 10px;
+  background: #ebb1b3;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.progress input::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: url("./assets/star.png") center / contain no-repeat;
+  border: none;
+  cursor: pointer;
+}
+
+.progress input::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: url("./assets/star.png") center / contain no-repeat;
+  border: none;
+  cursor: pointer;
 }
 
 .frame {

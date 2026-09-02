@@ -25,3 +25,34 @@ https://little-tunes.vercel.app/
 
 ```bash
 git clone https://github.com/vishwa-io/little-tunes.git
+
+# go into the project folder:
+cd little-tunes
+
+# install the dependencies:
+npm install
+
+# start the development server:
+npm run dev
+
+
+# Project Structure
+
+src/
+├── assets/
+│   ├── music/
+│   │   ├── song-1.mp3
+│   │   └── song-2.mp3
+│   ├── cover.png
+│   ├── frame.png
+│   ├── play.png
+│   ├── pause.png
+│   ├── forwards.png
+│   ├── backwards.png
+│   └── star.png
+├── App.jsx
+├── App.css
+├── index.css
+└── main.jsx
+
+```

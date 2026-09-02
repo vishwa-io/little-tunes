@@ -2,7 +2,10 @@
 
 A simple and cute music player built with React and Vite.
 
-## Live Demo
+## Github:
+
+https://github.com/vishwa-io
+## Live Demo:
 
 https://little-tunes.vercel.app/
 
